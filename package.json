@@ -1,7 +1,6 @@
 {
   "name": "nuxt-app",
   "private": true,
-  "type": "module",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -9,9 +8,15 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "nuxt": "^3.7.1"
+  },
+  "overrides": {
+    "vue": "latest"
+  },
   "dependencies": {
-    "nuxt": "^3.11.2",
-    "vue": "^3.4.21",
-    "vue-router": "^4.3.0"
+    "@pinia/nuxt": "^0.5.1",
+    "pinia": "^2.1.7"
   }
 }

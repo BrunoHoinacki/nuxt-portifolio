@@ -2,6 +2,8 @@
     <div>
         Você está no video: {{ idParams }}
     </div>
+    <VideoDetalhes />
+    <VideoControlePlay />
 </template>
 
 <script setup>

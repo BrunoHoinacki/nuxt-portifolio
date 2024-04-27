@@ -1,4 +1,5 @@
 <template>
+  <Header />
   <div>
     Página inicial
   </div>
@@ -8,6 +9,4 @@
 
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

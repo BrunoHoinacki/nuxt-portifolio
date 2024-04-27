@@ -6,13 +6,7 @@
     <div v-for="video in videos" :key="video.id">
       <h2>{{ video.descrição }}</h2>
       <p v-data-horario>{{ video.data_postagem }}</p>
-      <iframe
-        width="550"
-        height="400"
-        :src="video.url"
-        title="YouTube video player"
-        frameborder="0"
-      />
+      <iframe width="550" height="400" :src="video.url" title="YouTube video player" frameborder="0" />
 
       <div>
         <button @click="adicionarFavorito(video)">Adicionar Favorito</button>

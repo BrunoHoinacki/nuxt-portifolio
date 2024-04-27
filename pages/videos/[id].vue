@@ -17,6 +17,4 @@ const route = useRoute();
 const idParams = computed(() => route.params.id);
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

@@ -1,7 +1,7 @@
 export default function () {
     const diferencaEmDias = ref(0);
 
-    const diasPassados = (data: Date) => { 
+    const diasPassados = (data: Date) => {
         const dataAtual = new Date().getTime();
         const diferencaEmMilissegundos = dataAtual - data.getTime();
 

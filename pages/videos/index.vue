@@ -1,7 +1,11 @@
 <template>
   <div>Vídeos</div>
-
-  <NuxtLink to="/videos/favoritos">Favoritos</NuxtLink>
+  <div>
+    <NuxtLink to="/videos/favoritos">Favoritos</NuxtLink>
+  </div>
+  <div>
+    <NuxtLink to="/">Voltar</NuxtLink>
+  </div>
   <h1>{{ $t("titulo") }}</h1>
   <div class="videos">
     <div v-for="video in videos" :key="video.id">
@@ -10,20 +14,26 @@
       <iframe width="550" height="400" :src="video.url" title="YouTube video player" frameborder="0" />
 
       <div>
-        <button @click="adicionarFavorito(video)">Adicionar Favorito</button>
+        <button @click="adicionarFavorito(video)">
+          {{ $t("textoBotaoFavorito") }}
+        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+const { $toast } = useNuxtApp();
+
+const { locale } = useI18n();
+
 import type { Video } from "@/interfaces/video";
 
 import { useVideoStore } from '~/store/video';
 
-const { $toast } = useNuxtApp();
 
 onMounted(() => {
+  console.log(locale.value);
   $toast.success("Toast adicionado com sucesso!");
 });
 

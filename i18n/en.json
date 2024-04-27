@@ -1,6 +1,7 @@
 {
     "en": {
         "titulo": "My Videos",
-        "tituloFavorito": "My Favorites"
+        "tituloFavorito": "My Favorites",
+        "textoBotaoFavorito": "Add to Favorites"
     }
 }

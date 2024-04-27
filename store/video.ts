@@ -1,8 +1,6 @@
 import type { Video } from "~/interfaces/video";
 
-export const useVideoStore = defineStore("videos", 
-
-() => {
+export const useVideoStore = defineStore("videos", () => {
   const favoritos = ref<Video[]>([]);
 
   const adicionarFavorito = (video: Video) => {

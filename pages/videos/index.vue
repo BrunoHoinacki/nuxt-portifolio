@@ -1,22 +1,21 @@
 <template>
-  <div>
-    <div>
-      Vídeos
-    </div>
-    <div>
-      <NuxtLink to="/videos/favoritos">Favoritos</NuxtLink>
-    </div>
-    <div>
-      <NuxtLink to="/">Voltar</NuxtLink>
-    </div>
-    <div class="videos">
-      <div v-for="video in videos" :key="video.id">
-        <h2>{{ video.descrição }}</h2>
-        <p>{{ converteDataBrasil(video.data_postagem) }}</p>
-        <iframe width="550" height="400" :src="video.url" title="YouTube video player" frameborder="0" />
-        <div>
-          <button @click="adicionarFavorito(video)">Adicionar Favorito</button>
-        </div>
+  <div>Vídeos</div>
+
+  <NuxtLink to="/videos/favoritos">Favoritos</NuxtLink>
+  <div class="videos">
+    <div v-for="video in videos" :key="video.id">
+      <h2>{{ video.descrição }}</h2>
+      <p v-data-horario>{{ video.data_postagem }}</p>
+      <iframe
+        width="550"
+        height="400"
+        :src="video.url"
+        title="YouTube video player"
+        frameborder="0"
+      />
+
+      <div>
+        <button @click="adicionarFavorito(video)">Adicionar Favorito</button>
       </div>
     </div>
   </div>
@@ -26,6 +25,12 @@
 import type { Video } from "@/interfaces/video";
 
 import { useVideoStore } from '~/store/video';
+
+const { $toast } = useNuxtApp();
+
+onMounted(() => {
+  $toast.success("Toast adicionado com sucesso!");
+});
 
 const { adicionarFavorito } = useVideoStore();
 
@@ -56,9 +61,6 @@ const videos: Video[] = [
   },
 ];
 
-const converteDataBrasil = (dataAtual: string) => {
-  return new Date(dataAtual).toLocaleDateString("pt-BR");
-};
 </script>
 
 <style scoped>

@@ -7,7 +7,7 @@
       <iframe width="550" height="400" :src="video.url" title="YouTube video player" frameborder="0" />
 
       <div>
-        <button @click="videoStore.deletarFavorito(video.id)">
+        <button @click="RemoverFavorito(video.id)">
           Remover Favorito
         </button>
       </div>
@@ -20,6 +20,14 @@ import { useVideoStore } from '~/store/video';
 
 // const favoritos = useFavoritos();
 
+const { $toast } = useNuxtApp();
+
 const videoStore = useVideoStore();
+
 const { favoritos } = storeToRefs(videoStore);
+
+const RemoverFavorito = (id: number) => {
+  videoStore.deletarFavorito(id);
+  $toast.error('Video removido dos favoritos');
+};
 </script>

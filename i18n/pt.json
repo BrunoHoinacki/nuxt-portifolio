@@ -2,6 +2,7 @@
     "pt": {
         "titulo": "Meus Vídeos",
         "tituloFavorito": "Meus Favoritos",
-        "textoBotaoFavorito": "Adicionar aos Favoritos"
+        "textoBotaoFavorito": "Adicionar aos Favoritos",
+        "textoBotaoRemoverFavorito": "Remover dos Favoritos"
     }
 }

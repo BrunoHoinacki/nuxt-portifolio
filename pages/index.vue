@@ -1,15 +1,6 @@
 <template>
-  <Header />
   <div class="flex flex-col">
-    <div>
-      Página inicial
-    </div>
-    <div>
-      <NuxtLink to="/videos">Vídeos</NuxtLink>
-    </div>
-    <div>
-      <NuxtLink to="/lista">Lista</NuxtLink>
-    </div>
+    <div class="text-5xl text-center">Página Inicial</div>
   </div>
 </template>
 

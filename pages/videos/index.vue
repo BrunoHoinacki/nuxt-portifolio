@@ -1,24 +1,29 @@
 <template>
-  <div>Vídeos</div>
-  <div>
-    <NuxtLink to="/videos/favoritos">Favoritos</NuxtLink>
-  </div>
-  <div>
-    <NuxtLink to="/">Voltar</NuxtLink>
-  </div>
-  <h1>{{ $t("titulo") }}</h1>
-  <div class="videos">
-    <div v-for="video in videos" :key="video.id">
-      <h2>{{ video.descrição }}</h2>
-      <p v-data-horario>{{ video.data_postagem }}</p>
-      <iframe width="550" height="400" :src="video.url" title="YouTube video player" frameborder="0" />
-
-      <div>
-        <button @click="adicionarFavorito(video)">
-          {{ $t("textoBotaoFavorito") }}
-        </button>
-      </div>
-    </div>
+  <h1 class="text-5xl text-center mb-4">{{ $t("titulo") }}</h1>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-center gap-4">
+    <UCard v-for="video in videos" :key="video.id">
+      <template #header>
+        {{ video.descrição }}
+      </template>
+      <iframe class="w-full h-48" :src="video.url" title="YouTube video player" frameborder="0" />
+      <template #footer>
+        <div class="flex justify-between">
+          <UButton @click="favoritar(video)">
+            {{ $t("textoBotaoFavorito") }}
+          </UButton>
+          <NuxtLink :to="{
+            name: 'videos-id',
+            params: { id: video.id.toString() },
+          }">
+            <UButton label="Ver video" color="gray">
+              <template #trailing>
+                <UIcon name="i-heroicons-arrow-right-20-solid" class="w-5 h-5" />
+              </template>
+            </UButton>
+          </NuxtLink>
+        </div>
+      </template>
+    </UCard>
   </div>
 </template>
 
@@ -30,12 +35,6 @@ const { locale } = useI18n();
 import type { Video } from "@/interfaces/video";
 
 import { useVideoStore } from '~/store/video';
-
-
-onMounted(() => {
-  console.log(locale.value);
-  $toast.success("Toast adicionado com sucesso!");
-});
 
 const { adicionarFavorito } = useVideoStore();
 
@@ -66,18 +65,10 @@ const videos: Video[] = [
   },
 ];
 
+const favoritar = (video: Video) => {
+  adicionarFavorito(video);
+  $toast.success("Video adicionado aos favoritos");
+}
 </script>
 
-<style scoped>
-.videos {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.videos button {
-  display: inline-block;
-}
-</style>
+<style scoped></style>

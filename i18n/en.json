@@ -2,6 +2,7 @@
     "en": {
         "titulo": "My Videos",
         "tituloFavorito": "My Favorites",
-        "textoBotaoFavorito": "Add to Favorites"
+        "textoBotaoFavorito": "Add to Favorites",
+        "textoBotaoRemoverFavorito": "Remove from Favorites"
     }
 }

@@ -5,7 +5,7 @@
       <UCard v-for="video in favoritos" :key="video.id">
         {{ video.descrição }}
         <iframe class="h-48 w-full" :src="video.url" title="YouTube video player" frameborder="0" />
-        <UButton @click="removerFavorito(video.id)">
+        <UButton class="mt-2" @click="removerFavorito(video.id)">
           {{ $t("textoBotaoRemoverFavorito") }}
         </UButton>
       </UCard>
